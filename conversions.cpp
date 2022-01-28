@@ -194,7 +194,11 @@ void Octaltodecimal()
 }
 void Octaltohexadecimal()
 {
-
+    string octal_number ;
+    cout<<"Enter the Octal Number : ";
+    cin>>octal_number;
+    string octal[8]={"000","001","010","011","100","101","110","111"};
+    int s=octal_number.length();
 }
 void Decimaltobinary()
 {
