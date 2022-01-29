@@ -194,11 +194,59 @@ void Octaltodecimal()
 }
 void Octaltohexadecimal()
 {
-    string octal_number ;
-    cout<<"Enter the Octal Number : ";
+    long long int octal_number ;
+    cout<<"Enter the octal number : ";
     cin>>octal_number;
-    string octal[8]={"000","001","010","011","100","101","110","111"};
-    int s=octal_number.length();
+    int n=0,sum=0,r=0;
+    while(octal_number)
+    {
+        r=octal_number%10;
+        sum=sum+(r*pow(8,n));
+        n=n+1;
+        octal_number/=10;
+    }
+    int i=0,arr[100];
+    while(sum)
+    {
+        r=sum%16;
+        arr[i]=r;
+        i=i+1;
+        sum/=16;
+    }
+    cout<<"The Hexadecimal Number is : ";
+    for(int j=i-1;j>=0;j--)
+    {
+        if(arr[j]==10)
+        {
+            cout<<"A";
+        }
+        else if(arr[j]==11)
+        {
+            cout<<'B';
+        }
+        else if(arr[j]==12)
+        {
+            cout<<'C';
+        }
+        else if(arr[j]==13)
+        {
+            cout<<'D';
+        }
+        else if(arr[j]==14)
+        {
+            cout<<'E';
+        }
+        else if(arr[j]==15)
+        {
+            cout<<'F';
+        }
+        else 
+        {
+            cout<<arr[j];
+        }
+    }
+    cout<<endl;
+
 }
 void Decimaltobinary()
 {
@@ -314,6 +362,36 @@ void Hexadecimaltobinary()
 }
 void Hexadecimaltooctal()
 {
+    string hexadecimalnumber;
+    cout<<"Enter the Hexadecimal number (only capital alphabets): ";
+    cin>>hexadecimalnumber;
+    string arr1[16]={"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
+    int s=hexadecimalnumber.length();
+    int sum=0;
+    for(int i=0;i<s;i++)
+    {
+        string a;int j=0;
+        a=hexadecimalnumber[i];
+        while(arr1[j]!=a)
+        {
+            j+=1;
+        }
+        sum=sum+(j*pow(16,s-i-1));
+    }
+    int r=0,i=0,arr[100];
+    while(sum)
+    {
+        r=sum%8;
+        arr[i]=r;
+        i=i+1;
+        sum/=8;
+    }
+    cout<<"The Octal Number is : ";
+    for(int j=i-1;j>=0;j--)
+    {
+        cout<<arr[j];
+    }
+    cout<<endl;
 
 }
 void Hexadecimaltodecimal()
